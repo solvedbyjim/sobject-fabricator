@@ -1,0 +1,29 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "MockSObjectFabricator",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "dependencies": [
+                {
+                    "subscriberPackageVersionId": "04t1S000000XzmXQAS"
+                },
+                {
+                    "subscriberPackageVersionId": "04t1S000000XzmcQAC"
+                },
+                {
+                    "subscriberPackageVersionId": "04t1S000000XzsBQAS"
+                }
+            ]
+        }
+    ],
+    "name": "MockSObjectFabricator",
+    "namespace": "solvedbyjim",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "55.0",
+    "packageAliases": {
+        "MockSObjectFabricator": "0Ho1S000000TN3fSAG"
+    }
+}
