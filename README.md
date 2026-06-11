@@ -1,19 +1,46 @@
-# Salesforce DX Project: Next Steps
-
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
-
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
 # sobject-fabricator
+
+`sobject-fabricator` is an implementation package for the `SObjectBuilder` interface defined in the base `sobject-builder` package.
+
+This package is not intended to be used directly as the primary entry point. Instead, it is installed alongside the base package and resolved as the active implementation when it is configured as the default implementation in the org.
+
+## Relationship to the base package
+
+The base package owns the public contract and implementation resolution. This package contributes:
+
+- the implementation class: `SObjectFabricatorAdaptor`
+- a custom metadata registration record: `SObject_Builder_Implementation.SObject_Fabricator`
+
+Once the package is installed and that implementation record is marked as default, calls made through the `SObjectBuilder` interface from the base package will resolve to this implementation.
+
+Base package repository:
+
+- https://github.com/solvedbyjim/sobject-builder
+
+## What this package provides
+
+`SObjectFabricatorAdaptor` implements the builder contract and delegates to the fabricator classes in this package to support:
+
+- building from an `SObject`, object API name, or Apex `Type`
+- setting individual fields or field maps
+- setting parent relationships
+- setting or appending child relationships
+- materializing the result back to an `SObject`
+
+## Installation and activation
+
+1. Install the base `sobject-builder` package.
+2. Install this `sobject-fabricator` package.
+3. In the subscriber org, mark the `SObject Fabricator` implementation record as the default implementation.
+
+This package currently ships its registration record with `Default__c = false`, so it must be explicitly activated before the base package will resolve to it by default.
+
+## Usage
+
+Use the APIs documented by the base `sobject-builder` package to request or work with an `SObjectBuilder`.
+
+After this package is installed and marked as the default implementation, those interface-based calls will use `SObjectFabricatorAdaptor` behind the scenes. Consumers should generally depend on the base package contract rather than referencing this implementation package directly.
+
+## Repository scope
+
+This repository contains the fabricator implementation and its tests. Interface-level documentation, contracts, and implementation-selection behavior belong to the base package.
