@@ -1,29 +1,26 @@
 {
-    "packageDirectories": [
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "package": "SObjectFabricator",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "versionDescription": "",
+      "dependencies": [
         {
-            "path": "force-app",
-            "default": true,
-            "package": "MockSObjectFabricator",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT",
-            "dependencies": [
-                {
-                    "subscriberPackageVersionId": "04t1S000000XzmXQAS"
-                },
-                {
-                    "subscriberPackageVersionId": "04t1S000000XzmcQAC"
-                },
-                {
-                    "subscriberPackageVersionId": "04t1S000000XzsBQAS"
-                }
-            ]
+          "subscriberPackageVersionId": "04tHp000001R3SWIA0"
+        },
+        {
+          "subscriberPackageVersionId": "04tHp000001R68nIAC"
         }
-    ],
-    "name": "MockSObjectFabricator",
-    "namespace": "solvedbyjim",
-    "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "55.0",
-    "packageAliases": {
-        "MockSObjectFabricator": "0Ho1S000000TN3fSAG"
+      ]
     }
+  ],
+  "name": "SObjectFabricator",
+  "namespace": "solvedbyjim",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "58.0",
+  "packageAliases": {
+    "SObjectFabricator": "0HoHp000000blQGKAY"
+  }
 }

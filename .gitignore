@@ -1,0 +1,24 @@
+# Salesforce CLI local state (old and new)
+.sf/
+.sfdx/
+
+# VSCode project settings (keep if you intentionally share settings)
+.vscode/
+
+# macOS / Windows
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Apex/Jest test coverage and reports
+coverage/
+.lcov/
+lcov.info
+
+force-queryParser/
+
+.cache/
+
+config/

@@ -8,6 +8,6 @@
     </values>
     <values>
         <field>Implementation_Class_Name__c</field>
-        <value xsi:type="xsd:string">SObjectFabricatorFacade</value>
+        <value xsi:type="xsd:string">SObjectFabricatorAdaptor</value>
     </values>
 </CustomMetadata>
